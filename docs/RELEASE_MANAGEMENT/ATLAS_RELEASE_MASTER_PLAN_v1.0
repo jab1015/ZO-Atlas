@@ -4,442 +4,1405 @@ Version: 1.0
 Status: Active
 Owner: Jerry Brown
 Product: Project Atlas
+Codename: Atlas
 Last Updated: July 2026
 
 ====================================================================
-Version History
+VERSION HISTORY
+====================================================================
 
 v1.0
-- Initial release roadmap created.
+• Initial Release Master Plan created.
 
 v1.1
-- Added task numbering.
-- Added Release Blockers.
-- Added Current Project Status.
+• Added Release Blockers.
+• Added Current Project Status.
+• Added implementation workflow.
 
 v1.2
-- Reordered milestones to prioritize autonomous execution.
+• Reorganized roadmap around autonomous execution.
+
+v1.3
+• Converted milestone roadmap from legacy M-series to AT-series.
+• Added Engineering Intelligence roadmap.
+• Added Native CAD roadmap.
+• Added Manufacturing Intelligence roadmap.
+• Added Patent Intelligence roadmap.
+• Added CEO Operating System milestones.
+• Added Architecture Rules.
+• Added Release Readiness tracking.
+• Added Daily Development Workflow.
+• Added Current Project State.
+• Added Session Changelog.
+• Established this document as the permanent authoritative project record.
 
 ====================================================================
-# PURPOSE
+PURPOSE
+====================================================================
 
 This document is the single source of truth for Project Atlas.
 
-Every implementation task, prompt, feature request, and development decision must align with this document.
+Every coding task, implementation prompt, architecture decision,
+feature request, roadmap discussion, and release decision must align
+with this document.
+
+No implementation may knowingly violate this Release Master Plan.
 
 This document exists to:
 
-• Keep development organized.
-• Prevent duplicate work.
-• Maintain architectural consistency.
-• Prioritize features based on release value.
-• Minimize wasted implementation tasks.
-• Track overall progress from concept to Version 1.0 Release.
+• Maintain architectural consistency
+
+• Preserve long-term project memory
+
+• Prevent duplicate implementation
+
+• Record completed milestones
+
+• Define implementation priorities
+
+• Document engineering decisions
+
+• Track release readiness
+
+• Guide every future development session
+
+This document is updated after every completed implementation session.
 
 ====================================================================
-
-# PRODUCT VISION
-
-Atlas is an autonomous AI operating system for inventors.
-
-Atlas is not a chatbot.
-
-Atlas is not a project management application.
-
-Atlas is not simply an assistant.
-
-Atlas functions as an AI company.
-
-Each department performs real work, collaborates with other departments, produces deliverables, and only escalates decisions that require human approval.
-
-The founder should spend time making important decisions—not managing individual tasks.
-
+PRODUCT VISION
 ====================================================================
 
-# PRODUCT PRINCIPLES
+Atlas is an Autonomous AI Operating System for Inventors.
 
-The following principles are permanent.
+Atlas is NOT:
 
-1. Atlas performs work instead of simply providing advice.
+• a chatbot
 
-2. Every department must produce measurable outputs.
+• a note-taking application
 
-3. Atlas never asks the founder to perform work it can perform itself.
+• a project manager
 
-4. Human interaction is limited to:
-   • strategic decisions
-   • legal approvals
-   • physical-world actions
-   • external relationships
+• a document generator
 
-5. Every completed department must create structured outputs for downstream departments.
+• a collection of AI prompts
 
-6. Atlas should automatically continue work whenever dependencies are satisfied.
+Atlas functions as an autonomous company.
 
-7. Placeholder states should only exist when absolutely unavoidable.
+Each department performs meaningful work, collaborates with other
+departments, produces structured outputs, records evidence, updates the
+CEO, and automatically continues work whenever dependencies are
+satisfied.
 
-8. Every new feature must move Atlas closer to a fully autonomous inventor operating system.
-
-====================================================================
-
-# CURRENT STATUS
-
-Overall Progress
-
-Frontend:
-95%
-
-Backend:
-72%
-
-AI Departments:
-20%
-
-Autonomous Execution:
-20%
-
-Document Intelligence:
-80%
-
-Founder Experience:
-90%
-
-Overall Release Progress:
-Approximately 60%
+The founder should spend time making strategic decisions—not managing
+tasks.
 
 ====================================================================
+PRODUCT PRINCIPLES
+====================================================================
 
-# RELEASE GOAL
+These principles are permanent.
 
-Version 1.0 must allow an inventor to:
+1.
+
+Atlas performs work instead of giving advice.
+
+------------------------------------------------------------
+
+2.
+
+Every department produces measurable outputs.
+
+------------------------------------------------------------
+
+3.
+
+Every department consumes structured outputs from previous departments.
+
+------------------------------------------------------------
+
+4.
+
+Atlas automatically continues work whenever dependencies are satisfied.
+
+------------------------------------------------------------
+
+5.
+
+The founder should only be involved for:
+
+• Legal approvals
+
+• Strategic decisions
+
+• Physical-world actions
+
+• External relationships
+
+------------------------------------------------------------
+
+6.
+
+Engineering remains the technical source of truth.
+
+------------------------------------------------------------
+
+7.
+
+Native CAD remains the geometry source of truth.
+
+------------------------------------------------------------
+
+8.
+
+Manufacturing remains the production source of truth.
+
+------------------------------------------------------------
+
+9.
+
+Patent Intelligence remains the intellectual-property source of truth.
+
+------------------------------------------------------------
+
+10.
+
+Every implementation must move Atlas closer to becoming a fully
+autonomous inventor operating system.
+
+====================================================================
+CURRENT STATUS
+====================================================================
+
+Architecture
+
+██████████████████████░░ 90%
+
+Backend
+
+████████████████████░░░░ 82%
+
+Frontend
+
+███████████████████████░ 95%
+
+Autonomous Execution
+
+████████████████████████ 100%
+
+Engineering Intelligence
+
+████████████████████████ 100%
+
+Native CAD Foundation
+
+████████████████████████ 100%
+
+Manufacturing Intelligence
+
+████████████████████████ 100%
+
+Patent Intelligence 2.0
+
+████████████████████████ 100%
+
+Market Intelligence
+
+░░░░░░░░░░░░░░░░░░░░░░░░ 0%
+
+Overall Release Progress
+
+Approximately 72%
+
+====================================================================
+====================================================================
+RELEASE GOAL
+====================================================================
+
+Atlas Version 1.0 is complete when a founder can submit an invention once
+and Atlas autonomously coordinates every participating department from
+idea through commercialization.
+
+The founder should be able to:
 
 ✓ Create an invention
 
-✓ Upload documents
+✓ Upload supporting documents
 
 ✓ Receive autonomous analysis
 
-✓ Progress through invention stages
+✓ Generate engineering specifications
 
-✓ Receive department-generated deliverables
+✓ Maintain a persistent engineering model
 
-✓ Manage invention history
+✓ Generate a native CAD model
 
-✓ Review executive summaries
+✓ Evaluate manufacturability
 
-✓ Reach manufacturing readiness
+✓ Assess patent readiness
 
-without requiring technical knowledge.
+✓ Research market opportunities
+
+✓ Evaluate pricing
+
+✓ Prepare licensing materials
+
+✓ Prepare investor materials
+
+✓ Generate executive reports
+
+✓ Monitor autonomous department activity
+
+✓ Approve only legal, financial, or strategic decisions
+
+without requiring engineering, patent, manufacturing, or business
+expertise.
 
 ====================================================================
-
-# DEVELOPMENT PRIORITY
+DEVELOPMENT PRIORITY
+====================================================================
 
 Priority 1
-Autonomous Execution Engine
+
+Complete the Autonomous Operating System.
+
+------------------------------------------------------------
 
 Priority 2
-Patent Intelligence
+
+Complete all persistent intelligence layers.
+
+------------------------------------------------------------
 
 Priority 3
-Design Department
+
+Complete department-to-department autonomy.
+
+------------------------------------------------------------
 
 Priority 4
-Engineering
+
+Complete Founder Experience simplification.
+
+------------------------------------------------------------
 
 Priority 5
-Manufacturing
 
-Priority 6
-Competitor Intelligence
-
-Priority 7
-Pricing Intelligence
-
-Priority 8
-Marketing
-
-Priority 9
-Sales
-
-Priority 10
-Licensing
-
-Priority 11
-Investor
-
-Priority 12
-Launch
-
-Priority 13
-Release Polish
+Polish Version 1.0.
 
 ====================================================================
-
-# RELEASE MILESTONES
-
-□ M1 Core Platform
-
-□ M2 Founder Experience
-
-□ M3 Document Intelligence
-
-□ M4 Executive Orchestrator
-
-□ M5 Autonomous Department Framework
-
-□ M6 Patent Intelligence
-
-□ M7 Product Design
-
-□ M8 Engineering
-
-□ M9 Manufacturing
-
-□ M10 Business Departments
-
-□ M11 CEO Intelligence
-
-□ M12 Beta Release
-
-□ M13 Version 1.0 Public Release
-
+RELEASE MILESTONES
 ====================================================================
 
-# DEPARTMENT RULES
+The following milestones define the official implementation order.
 
-Every department must define:
+A milestone is complete only when:
+
+• Code is merged
+
+• Tests pass
+
+• Production deployment succeeds
+
+• Regression verification succeeds
+
+• Existing architecture remains intact
+
+------------------------------------------------------------
+
+AT-001 — Autonomous Orchestrator Foundation
+
+STATUS
+
+✅ COMPLETE
 
 Purpose
 
-Inputs
+Created the core orchestration engine responsible for coordinating every
+Atlas department.
 
-Processing
+------------------------------------------------------------
 
-Outputs
+AT-002 — Architecture Audit & Execution Consistency
 
-Dependencies
+STATUS
 
-Completion Criteria
+✅ COMPLETE
 
-No department is considered complete unless it produces useful work products.
+Purpose
+
+Unified execution architecture and removed conflicting execution paths.
+
+------------------------------------------------------------
+
+AT-003 — Unified Department Execution
+
+STATUS
+
+✅ COMPLETE
+
+Purpose
+
+Ensured every department executes through one orchestration pipeline.
+
+------------------------------------------------------------
+
+AT-004 — Founder Experience Messaging
+
+STATUS
+
+✅ COMPLETE
+
+Purpose
+
+Improved founder-facing communication while preserving architecture.
+
+------------------------------------------------------------
+
+AT-005 — Workspace Deduplication
+
+STATUS
+
+✅ COMPLETE
+
+Purpose
+
+Established canonical workspaces and eliminated duplicated information
+throughout Atlas.
+
+------------------------------------------------------------
+
+AT-006 — Autonomous Execution Engine
+
+STATUS
+
+✅ COMPLETE
+
+Purpose
+
+Implemented the event-driven execution engine with dependency-aware
+queues, retries, approval gates, lifecycle tracking, and execution
+history.
+
+Release Impact
+
+Atlas became capable of autonomously coordinating work across multiple
+departments.
 
 ====================================================================
-
-# TASK RULES
-
-Every implementation task must answer YES to all of the following:
-
-Does this move Atlas closer to release?
-
-Does this remove technical debt?
-
-Does this unblock additional departments?
-
-Does this improve autonomous execution?
-
-Can this be tested immediately?
-
-If the answer is NO, the task should be postponed unless it fixes a critical issue.
-
 ====================================================================
 
-# DAILY DEVELOPMENT WORKFLOW
+AT-007 — Native Engineering Intelligence Engine
 
-Step 1
+STATUS
 
-Review this document.
+✅ COMPLETE
 
-Step 2
+Purpose
+
+Established one persistent Engineering Intelligence Model per invention.
+
+Major Deliverables
+
+• Persistent Engineering Model
+
+• Parametric Product Model
+
+• Component hierarchy
+
+• Assembly relationships
+
+• Functional requirements
+
+• Manufacturing requirements
+
+• Materials
+
+• Dimensions
+
+• Tolerances
+
+• Engineering validation
+
+• Design-rule validation
+
+• Engineering Package generation
+
+• CEO Engineering Summary
+
+• Immutable engineering revisions
+
+• Downstream synchronization
+
+Release Impact
+
+Engineering became the authoritative technical source of truth for Atlas.
+
+------------------------------------------------------------
+
+AT-008 — Native CAD Foundation
+
+STATUS
+
+✅ COMPLETE
+
+Purpose
+
+Created Atlas' native geometry architecture that future CAD generation,
+simulation, and visualization will build upon.
+
+Major Deliverables
+
+• Native CAD Model
+
+• Parametric sketches
+
+• Geometry entities
+
+• Constraint system
+
+• Feature tree foundation
+
+• Bodies
+
+• Parts
+
+• Assemblies
+
+• Coordinate systems
+
+• Reference planes
+
+• Origin management
+
+• CAD serialization
+
+• Immutable CAD revisions
+
+• CAD snapshots
+
+• CAD diff engine
+
+• Geometry validation
+
+• Canonical CAD Package
+
+Release Impact
+
+Atlas now maintains its own internal geometric representation rather than
+depending solely on engineering specifications.
+
+------------------------------------------------------------
+
+AT-009 — Manufacturing Intelligence
+
+STATUS
+
+✅ COMPLETE
+
+Purpose
+
+Created a persistent Manufacturing Intelligence Model that evaluates how
+an invention can realistically be produced.
+
+Major Deliverables
+
+• Manufacturing Readiness
+
+• Manufacturing Constraints
+
+• Manufacturing Risks
+
+• Process Selection
+
+• Material Compatibility
+
+• Material Recommendations
+
+• DFM Rule Engine
+
+• Assembly Analysis
+
+• Production Complexity
+
+• Manufacturing Validation
+
+• Manufacturing Package
+
+• Manufacturing Revisions
+
+Release Impact
+
+Atlas now reasons about manufacturability using Engineering and CAD
+without duplicating either model.
+
+====================================================================
+====================================================================
+
+AT-010 — Patent Intelligence 2.0
+
+STATUS
+
+✅ COMPLETE
+
+Purpose
+
+Created a persistent Patent Intelligence Model that evaluates the
+intellectual-property position of an invention by consuming Engineering,
+CAD, and Manufacturing intelligence without duplicating their data.
+
+Major Deliverables
+
+• Patent Intelligence Model
+
+• Prior-Art Knowledge Store
+
+• Patent Landscape Analysis
+
+• Novelty Assessment
+
+• Patent Readiness Score
+
+• Inventive Feature Catalog
+
+• Claim Element Mapping
+
+• Independent Innovation Mapping
+
+• Prior-Art Conflict Tracking
+
+• Design-Around Opportunity Framework
+
+• Patent Risk Scoring
+
+• Evidence Linking
+
+• Technical Citation Tracking
+
+• Immutable Patent Revisions
+
+• Canonical Patent Package
+
+Release Impact
+
+Atlas now performs structured patent reasoning and maintains persistent
+patent intelligence that future Licensing and Investor departments can
+consume.
+
+------------------------------------------------------------
+
+AT-011 — Market Intelligence 2.0
+
+STATUS
+
+🚧 NEXT ACTIVE MILESTONE
+
+Purpose
+
+Create a persistent Market Intelligence Model that continuously evaluates
+commercial opportunity using internal Atlas knowledge and approved market
+data sources.
+
+Planned Deliverables
+
+• Market Intelligence Model
+
+• Competitor Landscape
+
+• Customer Segmentation
+
+• Demand Estimation
+
+• Trend Analysis
+
+• Opportunity Scoring
+
+• Pricing Inputs
+
+• SWOT Framework
+
+• Executive Market Summary
+
+• Canonical Market Package
+
+Expected Release Impact
+
+Atlas will transition from technical readiness to commercial readiness,
+allowing downstream Business, Marketing, Pricing, Sales, Licensing, and
+Investor departments to reason from a common market model.
+
+------------------------------------------------------------
+
+AT-012 — Financial Intelligence
+
+STATUS
+
+⏳ PLANNED
+
+Purpose
+
+Create a persistent Financial Intelligence Model that evaluates product
+economics.
+
+Planned Deliverables
+
+• Cost Modeling
+
+• Margin Analysis
+
+• Break-even Calculations
+
+• Manufacturing Cost Analysis
+
+• Revenue Forecasting
+
+• Financial Risk Assessment
+
+• Executive Financial Package
+
+------------------------------------------------------------
+
+AT-013 — Investor Intelligence
+
+STATUS
+
+⏳ PLANNED
+
+Purpose
+
+Generate investment-ready intelligence and founder-facing fundraising
+deliverables.
+
+Planned Deliverables
+
+• Investor Readiness Score
+
+• Executive Investment Summary
+
+• Pitch Package
+
+• Investment Memorandum
+
+• Funding Strategy
+
+• Investor Package
+
+====================================================================
+====================================================================
+
+AT-014 — Document Intelligence 2.0
+
+STATUS
+
+⏳ PLANNED
+
+Purpose
+
+Transform uploaded documents into a permanent institutional knowledge
+system instead of isolated files.
+
+Planned Deliverables
+
+• Cross-document reasoning
+
+• Automatic evidence extraction
+
+• Semantic document linking
+
+• Knowledge graph generation
+
+• Duplicate detection
+
+• Department synchronization
+
+• Automatic categorization
+
+• Persistent knowledge updates
+
+• Canonical Knowledge Package
+
+Expected Release Impact
+
+Every uploaded document permanently strengthens Atlas'
+understanding of an invention and becomes reusable by every department.
+
+------------------------------------------------------------
+
+AT-015 — Autonomous Company Operating System
+
+STATUS
+
+⏳ PLANNED
+
+Purpose
+
+Complete Atlas as a fully autonomous operating system for inventors.
+
+Planned Deliverables
+
+• CEO Coordination
+
+• Engineering
+
+• CAD
+
+• Manufacturing
+
+• Patent
+
+• Market Intelligence
+
+• Financial Intelligence
+
+• Investor Intelligence
+
+• Licensing
+
+• Marketing
+
+• Sales
+
+• Launch Planning
+
+• Executive Reporting
+
+• Autonomous Department Collaboration
+
+• Human Approval Gates
+
+Expected Release Impact
+
+Atlas becomes an AI company capable of coordinating the complete
+inventor journey with minimal founder intervention.
+
+====================================================================
+CURRENT PROJECT STATE
+====================================================================
+
+Current Phase
+
+Phase 2 — Autonomous Operating System Development
+
+------------------------------------------------------------
+
+Current Milestone
+
+AT-011 — Market Intelligence 2.0
+
+------------------------------------------------------------
+
+Current Status
+
+Engineering Intelligence
+
+✅ Complete
+
+Native CAD Foundation
+
+✅ Complete
+
+Manufacturing Intelligence
+
+✅ Complete
+
+Patent Intelligence 2.0
+
+✅ Complete
+
+Market Intelligence
+
+🚧 Ready to Begin
+
+------------------------------------------------------------
+
+Architecture Status
+
+✅ Stable
+
+------------------------------------------------------------
+
+Production Status
+
+✅ Stable
+
+------------------------------------------------------------
+
+Regression Status
+
+✅ Passing
+
+370 automated regression tests passing.
+
+------------------------------------------------------------
+
+Deployment Status
+
+✅ Production Ready
+
+Latest production deployments successfully completed through Convex and
+Vercel.
+
+====================================================================
+CURRENT DEVELOPMENT PRIORITIES
+====================================================================
+
+Priority 1
+
+AT-011 — Market Intelligence 2.0
+
+------------------------------------------------------------
+
+Priority 2
+
+AT-012 — Financial Intelligence
+
+------------------------------------------------------------
+
+Priority 3
+
+AT-013 — Investor Intelligence
+
+------------------------------------------------------------
+
+Priority 4
+
+AT-014 — Document Intelligence 2.0
+
+------------------------------------------------------------
+
+Priority 5
+
+AT-015 — Autonomous Company Operating System
+
+------------------------------------------------------------
+
+Priority 6
+
+Founder Experience Simplification
+
+(Post Version 1.0 Architecture Lock)
+
+====================================================================
+====================================================================
+RELEASE READINESS
+====================================================================
+
+FOUNDATION
+
+✅ Complete
+
+------------------------------------------------------------
+
+AUTHENTICATION
+
+✅ Complete
+
+------------------------------------------------------------
+
+ONBOARDING
+
+✅ Complete
+
+------------------------------------------------------------
+
+JOURNEY ENGINE
+
+✅ Complete
+
+------------------------------------------------------------
+
+AUTONOMOUS ORCHESTRATOR
+
+✅ Complete
+
+------------------------------------------------------------
+
+AUTONOMOUS EXECUTION ENGINE
+
+✅ Complete
+
+------------------------------------------------------------
+
+DOCUMENT INTELLIGENCE
+
+🟡 Functional
+
+Core functionality is complete.
+
+Advanced cross-document reasoning remains scheduled for AT-014.
+
+------------------------------------------------------------
+
+ENGINEERING INTELLIGENCE
+
+✅ Complete
+
+------------------------------------------------------------
+
+NATIVE CAD FOUNDATION
+
+✅ Complete
+
+------------------------------------------------------------
+
+MANUFACTURING INTELLIGENCE
+
+✅ Complete
+
+------------------------------------------------------------
+
+PATENT INTELLIGENCE
+
+✅ Complete
+
+------------------------------------------------------------
+
+MARKET INTELLIGENCE
+
+⚪ Planned
+
+------------------------------------------------------------
+
+FINANCIAL INTELLIGENCE
+
+⚪ Planned
+
+------------------------------------------------------------
+
+INVESTOR INTELLIGENCE
+
+⚪ Planned
+
+------------------------------------------------------------
+
+AUTONOMOUS COMPANY
+
+⚪ Planned
+
+------------------------------------------------------------
+
+FOUNDER EXPERIENCE POLISH
+
+Deferred until the autonomous architecture reaches Version 1.0 feature
+completion.
+
+====================================================================
+RELEASE BLOCKERS
+====================================================================
+
+Current Critical Blockers
+
+• Market Intelligence (AT-011) not yet implemented.
+
+• Financial Intelligence (AT-012) not yet implemented.
+
+• Investor Intelligence (AT-013) not yet implemented.
+
+• Advanced Document Intelligence (AT-014) not yet implemented.
+
+• Final Autonomous Company integration (AT-015) not yet implemented.
+
+------------------------------------------------------------
+
+Known Verification Boundaries
+
+The following items remain manually unverified and should be completed
+before Version 1.0 release:
+
+• Authenticated founder browser walkthrough.
+
+• Complete end-to-end invention lifecycle validation.
+
+• Long-running asynchronous execution verification.
+
+• Cross-department package consistency validation.
+
+• CEO Command Center production validation.
+
+These are validation tasks—not architectural blockers.
+
+====================================================================
+KNOWN ISSUES
+====================================================================
+
+Current Known Issues
+
+• Release Master Plan required reconciliation after major architectural
+  milestones.
+
+• Minor Next.js metadata warnings remain during production build but do
+  not prevent successful deployment.
+
+• Manual founder validation has not yet exercised every autonomous
+  workflow from Engineering through Patent Intelligence.
+
+No architectural regressions are currently known.
+
+====================================================================
+====================================================================
+PARKING LOT
+====================================================================
+
+The following ideas have been intentionally postponed until after the
+Autonomous Operating System reaches Version 1.0 feature completion.
+
+These items are not release blockers unless they become architectural
+requirements.
+
+• Founder Experience redesign
+
+• Progressive disclosure throughout the application
+
+• Executive conversational interface
+
+• Mobile UX optimization
+
+• Premium UI polish
+
+• Theme refinements
+
+• Accessibility improvements
+
+• Advanced analytics dashboards
+
+• White-label support
+
+• Multi-language support
+
+• Team collaboration enhancements
+
+====================================================================
+DAILY DEVELOPMENT WORKFLOW
+====================================================================
+
+Every implementation session follows this sequence.
+
+STEP 1
+
+Read this document completely.
+
+------------------------------------------------------------
+
+STEP 2
 
 Identify the first unfinished milestone.
 
-Step 3
+------------------------------------------------------------
 
-Implement only that milestone unless instructed otherwise.
+STEP 3
 
-Step 4
+Review the previous completed milestone and its architecture.
 
-Do not redesign completed systems.
+------------------------------------------------------------
 
-Step 5
-
-Preserve architecture.
-
-Step 6
-
-Run tests.
-
-Step 7
-
-Report:
-
-• completed work
-
-• files changed
-
-• tests
-
-• remaining blockers
-
-====================================================================
-
-# BUG TRACKER
-
-Critical
-
-High
-
-Medium
-
-Low
-
-(Updated after each review.)
-
-====================================================================
-
-# BACKLOG
-
-Future ideas are recorded here.
-
-They are NOT implemented until Version 1.0 unless they are required for release.
-
-====================================================================
-
-# CHANGE LOG
-
-Every completed implementation task is recorded here.
-
-Date
-
-Task
-
-Result
-
-Notes
-
-====================================================================
-
-# PROMPT STANDARD
-
-Every implementation prompt should begin with:
-
-"Continue Project Atlas development.
-
-Treat this Master Plan as the authoritative project roadmap.
+STEP 4
 
 Preserve all existing architecture.
 
-Do not rewrite completed systems.
+Never rewrite completed systems unless correcting a critical defect.
 
-Implement only the next unfinished milestone.
+------------------------------------------------------------
+
+STEP 5
+
+Implement only the current milestone.
+
+Do not skip ahead.
+
+Do not begin future milestones.
+
+------------------------------------------------------------
+
+STEP 6
+
+Run verification.
+
+Minimum required verification:
+
+• Convex code generation
+
+• TypeScript validation
+
+• Focused milestone tests
+
+• Full regression suite
+
+• Production build
+
+• Deployment verification
+
+------------------------------------------------------------
+
+STEP 7
+
+Report:
+
+• Executive Summary
+
+• Files Modified
+
+• Architecture Decisions
+
+• Features Implemented
+
+• Database Changes
+
+• API Changes
+
+• Validation Rules
+
+• Tests Executed
+
+• Build Status
+
+• Deployment Status
+
+• Remaining Work
+
+• Recommended Next Task
+
+------------------------------------------------------------
+
+STEP 8
+
+Update ONLY this file:
+
+docs/RELEASE_MANAGEMENT/ATLAS_RELEASE_MASTER_PLAN_v1.0.md
+
+Do not create a new Release Master Plan.
+
+====================================================================
+TASK IMPLEMENTATION RULES
+====================================================================
+
+Every implementation task must follow these rules.
+
+1.
+
+Preserve existing architecture.
+
+------------------------------------------------------------
+
+2.
 
 Maintain backward compatibility.
 
-Run all tests.
+------------------------------------------------------------
 
-Report exactly what was completed, what changed, and what remains."
+3.
+
+Consume existing intelligence layers instead of duplicating data.
+
+------------------------------------------------------------
+
+4.
+
+Use the AT-006 Autonomous Execution Engine.
+
+No polling.
+
+No bypasses.
+
+No duplicate execution paths.
+
+------------------------------------------------------------
+
+5.
+
+All new intelligence must produce a canonical package consumable by
+downstream departments.
+
+------------------------------------------------------------
+
+6.
+
+All significant autonomous actions must be visible through the
+CEO Command Center.
+
+------------------------------------------------------------
+
+7.
+
+Every milestone must include deterministic validation.
+
+------------------------------------------------------------
+
+8.
+
+Every completed milestone must pass the full regression suite before
+deployment.
 
 ====================================================================
+====================================================================
+CHANGE LOG
+====================================================================
 
-# FINAL OBJECTIVE
+## July 2026
 
-Atlas Version 1.0 is complete when an inventor can:
+### AT-006 — Autonomous Execution Engine
 
-Create an invention.
+STATUS
 
-Validate it.
+✅ Complete
 
-Research patents.
+Summary
 
-Analyze competitors.
+Implemented the event-driven execution engine with persistent queues,
+dependency-aware scheduling, retry handling, lifecycle tracking,
+approval gates, execution history, and Execution Center integration.
 
-Determine pricing.
+Verification
 
-Generate product specifications.
+• Regression tests passed
 
-Prepare manufacturing.
+• Production deployment successful
 
-Develop branding.
+------------------------------------------------------------
 
-Generate marketing.
+### AT-007 — Native Engineering Intelligence Engine
 
-Prepare licensing.
+STATUS
 
-Prepare investor materials.
+✅ Complete
 
-Plan launch.
+Summary
 
-Track progress.
+Implemented one authoritative Engineering Intelligence Model per
+invention, including structured engineering requirements, parametric
+components, immutable revisions, engineering validation, manufacturing
+targets, and canonical Engineering Packages.
 
-Receive executive guidance.
+Verification
 
-All while Atlas performs the majority of the work autonomously and only requests human input when absolutely necessary.
+• Convex deployment passed
+
+• TypeScript passed
+
+• 357 regression tests passed
+
+------------------------------------------------------------
+
+### AT-008 — Native CAD Foundation
+
+STATUS
+
+✅ Complete
+
+Summary
+
+Implemented Atlas' native geometry architecture including parametric
+sketches, geometry entities, constraint system, feature tree
+foundation, bodies, assemblies, coordinate systems, immutable CAD
+revisions, deterministic validation, and canonical CAD Packages.
+
+Verification
+
+• Convex deployment passed
+
+• TypeScript passed
+
+• 362 regression tests passed
+
+------------------------------------------------------------
+
+### AT-009 — Manufacturing Intelligence
+
+STATUS
+
+✅ Complete
+
+Summary
+
+Implemented a persistent Manufacturing Intelligence Model linked to
+Engineering and CAD. Added manufacturability analysis, DFM validation,
+process selection, complexity scoring, manufacturing packages, and
+idempotent execution through the Autonomous Execution Engine.
+
+Verification
+
+• Convex deployment passed
+
+• TypeScript passed
+
+• 366 regression tests passed
+
+------------------------------------------------------------
+
+### AT-010 — Patent Intelligence 2.0
+
+STATUS
+
+✅ Complete
+
+Summary
+
+Implemented a persistent Patent Intelligence Model with prior-art
+knowledge, novelty assessment, patent readiness scoring, inventive
+feature catalog, claim mapping, conflict tracking, design-around
+analysis, evidence linking, immutable revisions, canonical Patent
+Packages, and CEO Command Center integration.
+
+Verification
+
+• Convex deployment passed
+
+• TypeScript passed
+
+• 370 regression tests passed
+
+====================================================================
+NEXT SESSION START
+====================================================================
+
+When beginning the next development session:
+
+1. Read this document completely.
+
+2. Confirm the active milestone.
+
+3. Continue with:
+
+**AT-011 — Market Intelligence 2.0**
+
+4. Preserve all existing architecture.
+
+5. Build only the current milestone.
+
+6. Run the complete validation pipeline.
+
+7. Deploy.
+
+8. Update this Release Master Plan.
+
+====================================================================
+FINAL OBJECTIVE
+====================================================================
+
+Project Atlas Version 1.0 is complete when a founder can submit an
+invention once and Atlas autonomously coordinates every participating
+department from concept through commercialization.
+
+Atlas must:
+
+• Maintain persistent knowledge across all departments.
+
+• Perform meaningful work instead of providing advice.
+
+• Generate structured deliverables for downstream departments.
+
+• Coordinate autonomous execution through a single orchestration engine.
+
+• Explain every significant decision through the CEO Command Center.
+
+• Require founder input only for legal, financial, strategic, or
+physical-world actions.
+
+Success is measured not by the number of reports Atlas generates, but by
+its ability to independently execute, coordinate, reason, and guide an
+invention through the entire innovation lifecycle using a unified,
+explainable, trustworthy, and extensible operating system.
+
+====================================================================
 
 END OF DOCUMENT
+
 ====================================================================
-## RELEASE BLOCKERS
-
-(To be filled in after product audit.)
-
--------------------------------------------------
-
-## NEXT TASK
-
-(None Assigned)
-
--------------------------------------------------
-
-## PARKING LOT
-
-(Post Version 1.0 ideas.)
-====================================================================
-CURRENT PROJECT STATE
-
-Current Phase:
-Phase 2 – Autonomous Workers
-
-Current Milestone:
-M5 – Patent Intelligence
-
-Current Task:
-Task 17
-
-Last Completed Task:
-Task 16 – Executive Orchestrator
-
-Known Issues:
-...
-
-Next Task:
-Task 17 – Patent Worker
-
-Notes for Next Chat:
-...
-
-# Session Summary
-
-Date:
-2026-07-21
-
-Completed Today
-- AT-007
-- AT-008
-
-Decisions Made
-- Switched Patent Worker to Provider Abstraction
-- Delayed Manufacturing AI until Engineering Worker complete
-
-Files Modified
-- atlas-core/...
-- convex/...
-- app/dashboard/...
-
-Known Issues
-- ...
-
-Tomorrow's First Task
-AT-009 – Executive Orchestrator
-
-Estimated Release Progress
-38%
