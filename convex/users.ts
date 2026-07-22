@@ -62,6 +62,10 @@ export const ensureUserProfile = mutation({
       }
     }
 
+    if (!user.accountType) updates.accountType = "standard";
+    if (!user.accountStatus) updates.accountStatus = "active";
+    updates.lastSeenAt = Date.now();
+
     if (Object.keys(updates).length > 0) {
       await ctx.db.patch(userId, updates);
     }

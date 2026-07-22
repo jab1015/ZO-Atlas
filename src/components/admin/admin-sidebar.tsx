@@ -13,6 +13,8 @@ import {
   ArrowLeft,
   Menu,
   X,
+  ShieldCheck,
+  MessageSquare,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -24,7 +26,9 @@ interface AdminSidebarProps {
 }
 
 const navItems = [
-  { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/admin", label: "Control Center", icon: ShieldCheck },
+  { href: "/admin/users", label: "Users & Test Accounts", icon: Users },
+  { href: "/admin/support", label: "Support & Agent Chat", icon: MessageSquare },
   { href: "/admin/products", label: "Products", icon: Package },
   { href: "/admin/categories", label: "Categories", icon: FolderOpen },
   { href: "/admin/orders", label: "Orders", icon: ShoppingCart },

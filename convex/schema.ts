@@ -11,6 +11,9 @@ export default defineSchema({
     image: v.optional(v.string()),
     isAnonymous: v.optional(v.boolean()),
     createdAt: v.optional(v.number()),
+    accountType: v.optional(v.union(v.literal("standard"), v.literal("test"))),
+    accountStatus: v.optional(v.union(v.literal("active"), v.literal("suspended"))),
+    lastSeenAt: v.optional(v.number()),
     // Atlas MVP fields
     role: v.optional(v.union(v.literal("admin"), v.literal("user"))),
     subscriptionTier: v.optional(
@@ -29,7 +32,8 @@ export default defineSchema({
     inventorTwin: v.optional(v.null()),
   })
     .index("email", ["email"])
-    .index("by_role", ["role"]),
+    .index("by_role", ["role"])
+    .index("by_accountStatus", ["accountStatus"]),
 
   // ── Atlas: Inventions ────────────────────────────────────────────────────────
   inventions: defineTable({
@@ -238,4 +242,54 @@ export default defineSchema({
     sortOrder: v.optional(v.number()),
     createdAt: v.number(),
   }).index("by_productId", ["productId"]),
+
+  adminSupportThreads: defineTable({
+    createdByUserId: v.id("users"),
+    targetUserId: v.optional(v.id("users")),
+    subject: v.string(),
+    status: v.union(v.literal("open"), v.literal("investigating"), v.literal("resolved")),
+    priority: v.union(v.literal("low"), v.literal("normal"), v.literal("high"), v.literal("urgent")),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+    lastMessageAt: v.optional(v.number()),
+  })
+    .index("by_updatedAt", ["updatedAt"])
+    .index("by_targetUserId", ["targetUserId"])
+    .index("by_status", ["status"]),
+
+  adminSupportMessages: defineTable({
+    threadId: v.id("adminSupportThreads"),
+    authorUserId: v.optional(v.id("users")),
+    authorType: v.union(v.literal("admin"), v.literal("agent"), v.literal("system")),
+    content: v.string(),
+    metadata: v.optional(v.any()),
+    createdAt: v.number(),
+  }).index("by_threadId", ["threadId"]),
+
+  adminAgentTasks: defineTable({
+    threadId: v.id("adminSupportThreads"),
+    requestedByUserId: v.id("users"),
+    taskType: v.string(),
+    instruction: v.string(),
+    status: v.union(v.literal("queued"), v.literal("running"), v.literal("completed"), v.literal("failed")),
+    result: v.optional(v.string()),
+    error: v.optional(v.string()),
+    createdAt: v.number(),
+    completedAt: v.optional(v.number()),
+  })
+    .index("by_threadId", ["threadId"])
+    .index("by_status", ["status"]),
+
+  adminAuditLog: defineTable({
+    actorUserId: v.id("users"),
+    action: v.string(),
+    targetUserId: v.optional(v.id("users")),
+    targetType: v.optional(v.string()),
+    details: v.optional(v.any()),
+    createdAt: v.number(),
+  })
+    .index("by_createdAt", ["createdAt"])
+    .index("by_targetUserId", ["targetUserId"]),
+
+
 });
