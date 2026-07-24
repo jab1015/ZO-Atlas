@@ -31,6 +31,7 @@ function ResetPasswordForm() {
       const form = new FormData();
       form.set("flow", "reset");
       form.set("email", email);
+      form.set("redirectTo", "/reset-password");
       await signIn("password", form);
       setMessage("Check your email for a password-reset link.");
     } catch {
@@ -50,6 +51,7 @@ function ResetPasswordForm() {
       form.set("code", code ?? "");
       form.set("email", email);
       form.set("newPassword", newPassword);
+      form.set("redirectTo", "/reset-password");
       await signIn("password", form);
       router.push("/dashboard");
     } catch {
