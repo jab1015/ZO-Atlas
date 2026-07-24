@@ -16,7 +16,8 @@ function ResetPasswordForm() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const code = searchParams.get("code");
-  const [email, setEmail] = useState("");
+  const emailFromLink = searchParams.get("email") ?? "";
+  const [email, setEmail] = useState(emailFromLink);
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -49,7 +50,7 @@ function ResetPasswordForm() {
       const form = new FormData();
       form.set("flow", "reset-verification");
       form.set("code", code ?? "");
-      form.set("email", email);
+      form.set("email", email || emailFromLink);
       form.set("newPassword", newPassword);
       form.set("redirectTo", "/reset-password");
       await signIn("password", form);
