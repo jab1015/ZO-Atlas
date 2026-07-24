@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Sans } from "next/font/google";
-import { Providers } from "@/lib/convex";
+import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import { PostHogProvider } from "@/lib/posthog";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
@@ -45,12 +45,12 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} font-body antialiased`}
       >
-        <PostHogProvider>
-          <Providers>
+        <ConvexAuthNextjsServerProvider shouldHandleCode={false}>
+          <PostHogProvider>
             {children}
             <Toaster />
-          </Providers>
-        </PostHogProvider>
+          </PostHogProvider>
+        </ConvexAuthNextjsServerProvider>
       </body>
     </html>
   );
