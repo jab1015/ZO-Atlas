@@ -11,7 +11,10 @@ const convex = new ConvexReactClient(convexUrl);
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
-    <ConvexAuthProvider client={convex}>
+    <ConvexAuthProvider
+      client={convex}
+      shouldHandleCode={() => !window.location.pathname.endsWith("/reset-password")}
+    >
       {children}
     </ConvexAuthProvider>
   );
