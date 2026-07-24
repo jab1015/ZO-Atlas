@@ -2,8 +2,7 @@
 
 import { useAuthActions } from "@convex-dev/auth/react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { Suspense } from "react";
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +22,10 @@ function ResetPasswordForm() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    if (emailFromLink) setEmail(emailFromLink);
+  }, [emailFromLink]);
+
   const requestReset = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
@@ -31,7 +34,7 @@ function ResetPasswordForm() {
     try {
       const form = new FormData();
       form.set("flow", "reset");
-      form.set("email", email);
+      form.set("email", email.trim().toLowerCase());
       form.set("redirectTo", "/reset-password");
       await signIn("password", form);
       setMessage("Check your email for a password-reset link.");
@@ -50,9 +53,8 @@ function ResetPasswordForm() {
       const form = new FormData();
       form.set("flow", "reset-verification");
       form.set("code", code ?? "");
-      form.set("email", email || emailFromLink);
+      form.set("email", email.trim().toLowerCase());
       form.set("newPassword", newPassword);
-      form.set("redirectTo", "/reset-password");
       await signIn("password", form);
       router.push("/dashboard");
     } catch {
@@ -62,48 +64,35 @@ function ResetPasswordForm() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-[#f8fafc] dark:bg-[#071426]">
       <div className="flex-1 flex items-center justify-center px-4 py-16">
-        <div className="w-full max-w-sm space-y-8">
-          <div className="flex justify-center">
-            <Link href="/" className="no-underline hover:opacity-80 transition-opacity">
-              <AtlasLogo size="md" className="text-primary" />
-            </Link>
+        <div className="w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl dark:border-slate-700 dark:bg-slate-900">
+          <div className="bg-gradient-to-r from-[#0A1628] to-[#0d2a52] px-6 py-5 text-white">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-lg font-bold">A</div>
+              <div>
+                <div className="text-base font-bold">{code ? "Choose a new password" : "Reset your Atlas password"}</div>
+                <div className="text-xs text-slate-300">Your AI invention company is ready when you are.</div>
+              </div>
+            </div>
           </div>
-          <div className="space-y-2 text-center">
-            <h1 className="text-2xl font-bold text-foreground">
-              {code ? "Choose a new password" : "Reset your password"}
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              {code ? "Use at least eight characters." : "We’ll email you a secure reset link."}
-            </p>
+          <div className="space-y-5 p-6">
+            {code ? (
+              <form onSubmit={completeReset} className="space-y-4">
+                <div className="space-y-2"><Label htmlFor="email">Email</Label><Input id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required /></div>
+                <div className="space-y-2"><Label htmlFor="newPassword">New password</Label><Input id="newPassword" type="password" value={newPassword} onChange={(event) => setNewPassword(event.target.value)} minLength={8} autoComplete="new-password" required /></div>
+                {error && <p className="rounded-lg bg-red-50 p-3 text-sm text-red-600 dark:bg-red-500/10 dark:text-red-400">{error}</p>}
+                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={loading}>{loading ? "Updating…" : "Update password"}</Button>
+              </form>
+            ) : (
+              <form onSubmit={requestReset} className="space-y-4">
+                <div className="space-y-2"><Label htmlFor="email">Email</Label><Input id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" required /></div>
+                {message && <p className="rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300">{message}</p>}
+                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={loading}>{loading ? "Sending…" : "Send reset link"}</Button>
+              </form>
+            )}
+            <p className="text-center text-sm text-slate-500 dark:text-slate-400"><Link href="/sign-in" className="font-semibold text-blue-600 hover:text-blue-700">Back to sign in</Link></p>
           </div>
-          {code ? (
-            <form onSubmit={completeReset} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="newPassword">New password</Label>
-                <Input id="newPassword" type="password" value={newPassword} onChange={(event) => setNewPassword(event.target.value)} minLength={8} autoComplete="new-password" required />
-              </div>
-              {error && <p className="text-sm text-destructive">{error}</p>}
-              <Button type="submit" className="w-full" disabled={loading}>{loading ? "Updating…" : "Update password"}</Button>
-            </form>
-          ) : (
-            <form onSubmit={requestReset} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" required />
-              </div>
-              {message && <p className="text-sm text-muted-foreground">{message}</p>}
-              <Button type="submit" className="w-full" disabled={loading}>{loading ? "Sending…" : "Send reset link"}</Button>
-            </form>
-          )}
-          <p className="text-center text-sm text-muted-foreground">
-            <Link href="/sign-in" className="font-medium text-foreground underline-offset-4 hover:underline">Back to sign in</Link>
-          </p>
         </div>
       </div>
       <MadeThisBadge />
@@ -112,9 +101,5 @@ function ResetPasswordForm() {
 }
 
 export default function ResetPasswordPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-background" />} >
-      <ResetPasswordForm />
-    </Suspense>
-  );
+  return <Suspense fallback={<div className="min-h-screen bg-[#f8fafc]" />}><ResetPasswordForm /></Suspense>;
 }
