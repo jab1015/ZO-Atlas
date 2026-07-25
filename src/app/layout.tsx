@@ -7,45 +7,31 @@ import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-heading",
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["400", "500", "600"],
+  variable: "--font-ibm-plex-sans",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Atlas — The Operating System for Inventors",
-  description:
-    "Atlas guides inventors from idea to market — through every stage of the invention journey. A structured path from first idea to launch and growth.",
+  description: "Your AI executive team, from first idea to launch and growth.",
+  themeColor: "#0A1628",
   icons: process.env.NEXT_PUBLIC_BRAND_LOGO
     ? { icon: process.env.NEXT_PUBLIC_BRAND_LOGO }
-    : { icon: "/icon.svg", shortcut: "/icon.svg" },
-  themeColor: "#2d6a4f",
+    : undefined,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      {process.env.NEXT_PUBLIC_GSC_VERIFICATION_TOKEN && (
-        <head>
-          <meta
-            name="google-site-verification"
-            content={process.env.NEXT_PUBLIC_GSC_VERIFICATION_TOKEN}
-          />
-        </head>
-      )}
-      <body
-        className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} font-body antialiased`}
-      >
-        <ConvexAuthNextjsServerProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} font-body antialiased`}>
+        <ConvexAuthNextjsServerProvider shouldHandleCode={true}>
           <PostHogProvider>
             {children}
             <Toaster />
