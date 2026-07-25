@@ -45,7 +45,7 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} font-body antialiased`}
       >
-        <ConvexAuthNextjsServerProvider shouldHandleCode={() => true}>
+        <ConvexAuthNextjsServerProvider>
           <PostHogProvider>
             {children}
             <Toaster />
