@@ -60,7 +60,7 @@ async function appMiddleware(
 }
 
 export default convexAuthNextjsMiddleware(appMiddleware, {
-  shouldHandleCode: (request) => request.nextUrl.pathname !== "/reset-password",
+  shouldHandleCode: true,
 });
 
 export const config = {
