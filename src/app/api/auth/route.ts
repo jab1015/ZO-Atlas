@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { convexAuthNextjsMiddleware } from "@convex-dev/auth/nextjs/server";
 
 const authMiddleware = convexAuthNextjsMiddleware(undefined, {
-  shouldHandleCode: false,
+  shouldHandleCode: true,
 });
 
 export async function POST(request: NextRequest) {

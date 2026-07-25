@@ -60,7 +60,7 @@ async function appMiddleware(
 }
 
 export default convexAuthNextjsMiddleware(appMiddleware, {
-  shouldHandleCode: false,
+  shouldHandleCode: true,
 });
 
 export const config = {
