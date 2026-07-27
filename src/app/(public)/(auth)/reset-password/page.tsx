@@ -35,7 +35,7 @@ function ResetPasswordForm() {
       const form = new FormData();
       form.set("flow", "reset");
       form.set("email", email.trim().toLowerCase());
-      form.set("redirectTo", "/reset-password");
+      form.set("redirectTo", `${window.location.origin}/reset-password`);
       await signIn("password", form);
       setMessage("Check your email for a password-reset link. If you do not see it within a few minutes, check spam or request a new link.");
     } catch {
