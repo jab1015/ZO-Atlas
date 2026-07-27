@@ -14,8 +14,9 @@ function ResetPasswordForm() {
   const { signIn } = useAuthActions();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const code = searchParams.get("code");
+  const codeFromQuery = searchParams.get("code");
   const emailFromLink = searchParams.get("email") ?? "";
+  const [code, setCode] = useState(codeFromQuery);
   const [email, setEmail] = useState(emailFromLink);
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState<string | null>(null);
@@ -24,6 +25,8 @@ function ResetPasswordForm() {
 
   useEffect(() => {
     if (emailFromLink) setEmail(emailFromLink);
+    const hashCode = new URLSearchParams(window.location.hash.slice(1)).get("code");
+    if (hashCode) setCode(hashCode);
   }, [emailFromLink]);
 
   const requestReset = async (event: React.FormEvent<HTMLFormElement>) => {

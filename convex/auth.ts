@@ -12,7 +12,10 @@ const resetEmail: EmailConfig = {
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) throw new Error("RESEND_API_KEY is not configured");
     const resetUrl = new URL(url);
+    const code = resetUrl.searchParams.get("code");
+    resetUrl.searchParams.delete("code");
     resetUrl.searchParams.set("email", identifier);
+    if (code) resetUrl.hash = new URLSearchParams({ code }).toString();
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
