@@ -27,7 +27,8 @@ const resetEmail: EmailConfig = {
       }),
     });
     if (!response.ok) {
-      throw new Error(`Password reset email failed: ${response.status}`);
+      const detail = await response.text();
+      throw new Error(`Password reset email failed: ${response.status} ${detail}`);
     }
   },
 };
