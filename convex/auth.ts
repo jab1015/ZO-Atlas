@@ -7,9 +7,10 @@ const resetEmail: EmailConfig = {
   type: "email",
   name: "Password reset",
   from: process.env.AUTH_EMAIL_FROM ?? "Atlas <onboarding@resend.dev>",
+  apiKey: process.env.RESEND_API_KEY,
   maxAge: 60 * 60,
   sendVerificationRequest: async ({ identifier, url, provider }) => {
-    const apiKey = process.env.RESEND_API_KEY;
+    const apiKey = provider.apiKey ?? process.env.RESEND_API_KEY;
     if (!apiKey) throw new Error("RESEND_API_KEY is not configured");
     const resetUrl = new URL(url);
     const code = resetUrl.searchParams.get("code");
@@ -29,8 +30,22 @@ const resetEmail: EmailConfig = {
         html: `<p>We received a request to reset your Atlas password.</p><p><a href="${resetUrl.toString()}">Reset your password</a></p><p>This link expires in one hour. If you did not request this, you can ignore this email.</p>`,
       }),
     });
+    const detail = await response.text();
+    let responseId: string | null = null;
+    if (response.ok) {
+      try {
+        responseId = (JSON.parse(detail) as { id?: string }).id ?? null;
+      } catch {
+        responseId = null;
+      }
+    }
+    console.log("Atlas password reset email response", {
+      status: response.status,
+      ok: response.ok,
+      recipientDomain: identifier.split("@")[1] ?? "unknown",
+      responseId,
+    });
     if (!response.ok) {
-      const detail = await response.text();
       throw new Error(`Password reset email failed: ${response.status} ${detail}`);
     }
   },
